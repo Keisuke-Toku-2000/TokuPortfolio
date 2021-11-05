@@ -1,0 +1,34 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio",
+  "author": "Keisuke-Toku-2000",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.13.3",
+    "gatsby": "^4.1.0",
+    "gatsby-plugin-image": "^2.1.0",
+    "gatsby-plugin-sharp": "^4.1.0",
+    "gatsby-plugin-styled-components": "^5.1.0",
+    "gatsby-plugin-typegen": "^2.2.4",
+    "gatsby-source-filesystem": "^4.1.0",
+    "gatsby-transformer-sharp": "^4.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}
