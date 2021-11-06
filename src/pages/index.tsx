@@ -1,4 +1,4 @@
-import { Box, createMuiTheme, IconButton } from "@material-ui/core";
+import { Box, IconButton } from "@material-ui/core";
 import BrushIcon from "@mui/icons-material/Brush";
 
 import * as React from "react";
@@ -61,9 +61,7 @@ const IndexPage: React.VFC = () => {
       <Box component="div">
         <p style={centerShadowText}>Welcome!</p>
         <p style={centerText}>Welcome!</p>
-        <p style={helpText}>
-          こちらはポートフォリオサイトです。ボタンを押してテーマ色を選ぼう。
-        </p>
+        <p style={helpText}>こちらはポートフォリオサイトです。</p>
       </Box>
       <Box textAlign="center" mt={15}>
         {paintColors.map((paintColor, i) => (
