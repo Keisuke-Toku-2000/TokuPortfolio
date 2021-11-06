@@ -26,10 +26,10 @@ const menuItem = ["TOP", "PROFILE", "BLOG"];
 
 export const Header: VFC = () => {
   return (
-    <AppBar color="primary" position="static">
+    <AppBar color="primary">
       <Toolbar>
         <Box marginLeft="auto">
-          {menuItem.map((item) => {
+          {menuItem.map((item, i) => {
             let page_link = "";
             if (item === "TOP") {
               page_link = "/";
@@ -39,6 +39,7 @@ export const Header: VFC = () => {
                 activeStyle={activeText}
                 style={nonActiveText}
                 to={page_link}
+                key={i}
               >
                 <Box sx={headerLine}>{item}</Box>
               </Link>
