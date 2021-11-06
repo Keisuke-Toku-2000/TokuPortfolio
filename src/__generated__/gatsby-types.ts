@@ -609,6 +609,61 @@ type ImageSharpResize = {
   readonly originalName: Maybe<Scalars['String']>;
 };
 
+type MicrocmsBlogWithPicture = Node & {
+  readonly id: Scalars['ID'];
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly publishedAt: Maybe<Scalars['Date']>;
+  readonly revisedAt: Maybe<Scalars['Date']>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly type: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly picture: Maybe<MicrocmsBlogWithPicturePicture>;
+  readonly body: Maybe<Scalars['String']>;
+  readonly sortIndex: Maybe<Scalars['Int']>;
+  readonly blogWithPictureId: Maybe<Scalars['String']>;
+};
+
+
+type MicrocmsBlogWithPicture_createdAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type MicrocmsBlogWithPicture_updatedAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type MicrocmsBlogWithPicture_publishedAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type MicrocmsBlogWithPicture_revisedAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+type MicrocmsBlogWithPicturePicture = {
+  readonly url: Maybe<Scalars['String']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly width: Maybe<Scalars['Int']>;
+};
+
 type Query = {
   readonly file: Maybe<File>;
   readonly allFile: FileConnection;
@@ -626,6 +681,8 @@ type Query = {
   readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
   readonly imageSharp: Maybe<ImageSharp>;
   readonly allImageSharp: ImageSharpConnection;
+  readonly microcmsBlogWithPicture: Maybe<MicrocmsBlogWithPicture>;
+  readonly allMicrocmsBlogWithPicture: MicrocmsBlogWithPictureConnection;
 };
 
 
@@ -855,6 +912,32 @@ type Query_imageSharpArgs = {
 type Query_allImageSharpArgs = {
   filter: Maybe<ImageSharpFilterInput>;
   sort: Maybe<ImageSharpSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_microcmsBlogWithPictureArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  publishedAt: Maybe<DateQueryOperatorInput>;
+  revisedAt: Maybe<DateQueryOperatorInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  type: Maybe<StringQueryOperatorInput>;
+  picture: Maybe<MicrocmsBlogWithPicturePictureFilterInput>;
+  body: Maybe<StringQueryOperatorInput>;
+  sortIndex: Maybe<IntQueryOperatorInput>;
+  blogWithPictureId: Maybe<StringQueryOperatorInput>;
+};
+
+
+type Query_allMicrocmsBlogWithPictureArgs = {
+  filter: Maybe<MicrocmsBlogWithPictureFilterInput>;
+  sort: Maybe<MicrocmsBlogWithPictureSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -2911,6 +2994,220 @@ type ImageSharpGroupConnection_groupArgs = {
 
 type ImageSharpSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<ImageSharpFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type MicrocmsBlogWithPicturePictureFilterInput = {
+  readonly url: Maybe<StringQueryOperatorInput>;
+  readonly height: Maybe<IntQueryOperatorInput>;
+  readonly width: Maybe<IntQueryOperatorInput>;
+};
+
+type MicrocmsBlogWithPictureConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<MicrocmsBlogWithPictureEdge>;
+  readonly nodes: ReadonlyArray<MicrocmsBlogWithPicture>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly group: ReadonlyArray<MicrocmsBlogWithPictureGroupConnection>;
+};
+
+
+type MicrocmsBlogWithPictureConnection_distinctArgs = {
+  field: MicrocmsBlogWithPictureFieldsEnum;
+};
+
+
+type MicrocmsBlogWithPictureConnection_maxArgs = {
+  field: MicrocmsBlogWithPictureFieldsEnum;
+};
+
+
+type MicrocmsBlogWithPictureConnection_minArgs = {
+  field: MicrocmsBlogWithPictureFieldsEnum;
+};
+
+
+type MicrocmsBlogWithPictureConnection_sumArgs = {
+  field: MicrocmsBlogWithPictureFieldsEnum;
+};
+
+
+type MicrocmsBlogWithPictureConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: MicrocmsBlogWithPictureFieldsEnum;
+};
+
+type MicrocmsBlogWithPictureEdge = {
+  readonly next: Maybe<MicrocmsBlogWithPicture>;
+  readonly node: MicrocmsBlogWithPicture;
+  readonly previous: Maybe<MicrocmsBlogWithPicture>;
+};
+
+type MicrocmsBlogWithPictureFieldsEnum =
+  | 'id'
+  | 'parent.id'
+  | 'parent.parent.id'
+  | 'parent.parent.parent.id'
+  | 'parent.parent.parent.children'
+  | 'parent.parent.children'
+  | 'parent.parent.children.id'
+  | 'parent.parent.children.children'
+  | 'parent.parent.internal.content'
+  | 'parent.parent.internal.contentDigest'
+  | 'parent.parent.internal.description'
+  | 'parent.parent.internal.fieldOwners'
+  | 'parent.parent.internal.ignoreType'
+  | 'parent.parent.internal.mediaType'
+  | 'parent.parent.internal.owner'
+  | 'parent.parent.internal.type'
+  | 'parent.children'
+  | 'parent.children.id'
+  | 'parent.children.parent.id'
+  | 'parent.children.parent.children'
+  | 'parent.children.children'
+  | 'parent.children.children.id'
+  | 'parent.children.children.children'
+  | 'parent.children.internal.content'
+  | 'parent.children.internal.contentDigest'
+  | 'parent.children.internal.description'
+  | 'parent.children.internal.fieldOwners'
+  | 'parent.children.internal.ignoreType'
+  | 'parent.children.internal.mediaType'
+  | 'parent.children.internal.owner'
+  | 'parent.children.internal.type'
+  | 'parent.internal.content'
+  | 'parent.internal.contentDigest'
+  | 'parent.internal.description'
+  | 'parent.internal.fieldOwners'
+  | 'parent.internal.ignoreType'
+  | 'parent.internal.mediaType'
+  | 'parent.internal.owner'
+  | 'parent.internal.type'
+  | 'children'
+  | 'children.id'
+  | 'children.parent.id'
+  | 'children.parent.parent.id'
+  | 'children.parent.parent.children'
+  | 'children.parent.children'
+  | 'children.parent.children.id'
+  | 'children.parent.children.children'
+  | 'children.parent.internal.content'
+  | 'children.parent.internal.contentDigest'
+  | 'children.parent.internal.description'
+  | 'children.parent.internal.fieldOwners'
+  | 'children.parent.internal.ignoreType'
+  | 'children.parent.internal.mediaType'
+  | 'children.parent.internal.owner'
+  | 'children.parent.internal.type'
+  | 'children.children'
+  | 'children.children.id'
+  | 'children.children.parent.id'
+  | 'children.children.parent.children'
+  | 'children.children.children'
+  | 'children.children.children.id'
+  | 'children.children.children.children'
+  | 'children.children.internal.content'
+  | 'children.children.internal.contentDigest'
+  | 'children.children.internal.description'
+  | 'children.children.internal.fieldOwners'
+  | 'children.children.internal.ignoreType'
+  | 'children.children.internal.mediaType'
+  | 'children.children.internal.owner'
+  | 'children.children.internal.type'
+  | 'children.internal.content'
+  | 'children.internal.contentDigest'
+  | 'children.internal.description'
+  | 'children.internal.fieldOwners'
+  | 'children.internal.ignoreType'
+  | 'children.internal.mediaType'
+  | 'children.internal.owner'
+  | 'children.internal.type'
+  | 'internal.content'
+  | 'internal.contentDigest'
+  | 'internal.description'
+  | 'internal.fieldOwners'
+  | 'internal.ignoreType'
+  | 'internal.mediaType'
+  | 'internal.owner'
+  | 'internal.type'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'publishedAt'
+  | 'revisedAt'
+  | 'title'
+  | 'type'
+  | 'picture.url'
+  | 'picture.height'
+  | 'picture.width'
+  | 'body'
+  | 'sortIndex'
+  | 'blogWithPictureId';
+
+type MicrocmsBlogWithPictureGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<MicrocmsBlogWithPictureEdge>;
+  readonly nodes: ReadonlyArray<MicrocmsBlogWithPicture>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly group: ReadonlyArray<MicrocmsBlogWithPictureGroupConnection>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+
+type MicrocmsBlogWithPictureGroupConnection_distinctArgs = {
+  field: MicrocmsBlogWithPictureFieldsEnum;
+};
+
+
+type MicrocmsBlogWithPictureGroupConnection_maxArgs = {
+  field: MicrocmsBlogWithPictureFieldsEnum;
+};
+
+
+type MicrocmsBlogWithPictureGroupConnection_minArgs = {
+  field: MicrocmsBlogWithPictureFieldsEnum;
+};
+
+
+type MicrocmsBlogWithPictureGroupConnection_sumArgs = {
+  field: MicrocmsBlogWithPictureFieldsEnum;
+};
+
+
+type MicrocmsBlogWithPictureGroupConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: MicrocmsBlogWithPictureFieldsEnum;
+};
+
+type MicrocmsBlogWithPictureFilterInput = {
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+  readonly createdAt: Maybe<DateQueryOperatorInput>;
+  readonly updatedAt: Maybe<DateQueryOperatorInput>;
+  readonly publishedAt: Maybe<DateQueryOperatorInput>;
+  readonly revisedAt: Maybe<DateQueryOperatorInput>;
+  readonly title: Maybe<StringQueryOperatorInput>;
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly picture: Maybe<MicrocmsBlogWithPicturePictureFilterInput>;
+  readonly body: Maybe<StringQueryOperatorInput>;
+  readonly sortIndex: Maybe<IntQueryOperatorInput>;
+  readonly blogWithPictureId: Maybe<StringQueryOperatorInput>;
+};
+
+type MicrocmsBlogWithPictureSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<MicrocmsBlogWithPictureFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 

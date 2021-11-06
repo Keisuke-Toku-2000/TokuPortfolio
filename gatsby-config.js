@@ -9,6 +9,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     `gatsby-plugin-typegen`,
+    `gatsby-plugin-material-ui`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -17,5 +18,23 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: process.env.API_KEY,
+        serviceId: "toku-blog",
+        apis: [
+          {
+            endpoint: "blog_with_picture",
+          },
+        ],
+      },
+    },
   ],
 };
+
+const path = require("path");
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
