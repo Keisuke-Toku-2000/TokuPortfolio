@@ -2,12 +2,6 @@ import React, { VFC } from "react";
 import { AppBar, Box, BoxProps, Toolbar } from "@material-ui/core";
 import { Link } from "gatsby";
 
-//style
-const headerLine: BoxProps = {
-  display: "inline",
-  marginX: 3,
-};
-
 const activeText: object = {
   color: "white",
   opacity: 1,
@@ -28,7 +22,7 @@ export const Header: VFC = () => {
   return (
     <AppBar color="primary">
       <Toolbar>
-        <Box marginLeft="auto">
+        <div style={{ marginLeft: "auto" }}>
           {menuItem.map((item, i) => {
             let page_link = "";
             if (item === "TOP") {
@@ -41,11 +35,13 @@ export const Header: VFC = () => {
                 to={page_link}
                 key={i}
               >
-                <Box sx={headerLine}>{item}</Box>
+                <Box style={{ display: "inline", marginRight: "15px" }}>
+                  {item}
+                </Box>
               </Link>
             );
           })}
-        </Box>
+        </div>
       </Toolbar>
     </AppBar>
   );
