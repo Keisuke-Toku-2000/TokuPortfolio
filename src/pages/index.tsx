@@ -32,7 +32,6 @@ const paintColors = [
 
 const IndexPage: React.VFC = () => {
   const [color, setColor] = useState("#00CED1");
-
   const centerShadowText: object = {
     position: "absolute",
     left: "180px",
@@ -58,12 +57,12 @@ const IndexPage: React.VFC = () => {
 
   return (
     <Layout color={color}>
-      <Box component="div">
+      <div>
         <p style={centerShadowText}>Welcome!</p>
         <p style={centerText}>Welcome!</p>
         <p style={helpText}>こちらはポートフォリオサイトです。</p>
-      </Box>
-      <Box textAlign="center" mt={15}>
+      </div>
+      <div style={{ textAlign: "center" }}>
         {paintColors.map((paintColor, i) => (
           <IconButton
             style={{ color: paintColor }}
@@ -75,7 +74,7 @@ const IndexPage: React.VFC = () => {
             <BrushIcon />
           </IconButton>
         ))}
-      </Box>
+      </div>
     </Layout>
   );
 };
