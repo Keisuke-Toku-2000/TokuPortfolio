@@ -21,7 +21,7 @@ const menuItem = ["TOP", "PROFILE", "BLOG"];
 export const Header: VFC = () => {
   const [now, setNow] = useState<Date>(new Date());
 
-  const getNow = () => {
+  const getNow = (): string => {
     useEffect(() => {
       const timer = setInterval(() => {
         setNow(new Date());
@@ -30,6 +30,7 @@ export const Header: VFC = () => {
         clearInterval(timer);
       };
     }, [setNow]);
+
     return `${now.getFullYear()}/${
       now.getMonth() + 1
     }/${now.getDate()}　${now?.toLocaleTimeString()}`;
