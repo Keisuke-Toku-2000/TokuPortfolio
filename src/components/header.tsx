@@ -38,7 +38,7 @@ export const Header: VFC = () => {
   return (
     <AppBar color="primary">
       <Toolbar>
-        <p style={{ fontStyle: "italic" }}>{getNow()}</p>
+        <p style={{ fontStyle: "italic", color: "white" }}>{getNow()}</p>
         <div style={{ marginLeft: "auto", fontStyle: "italic" }}>
           {menuItem.map((item, i) => {
             let page_link = "";
