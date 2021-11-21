@@ -11,7 +11,7 @@ export const Layout: React.VFC<Props> = ({ color, children }) => {
   const theme = createTheme({
     palette: {
       primary: {
-        main: color ?? "#00CED1",
+        main: color ?? "#6794D8",
       },
       secondary: {
         main: "#00bcd4",
