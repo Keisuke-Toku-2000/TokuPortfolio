@@ -66,12 +66,11 @@ const IndexPage: React.VFC = () => {
       setTimeout(() => setText(welcome.slice(0, i + 1)), 600 + i * 300);
     }
   };
+  const thisYear = new Date().getFullYear();
 
   useEffect(() => {
     animationText();
   }, []);
-
-  console.log(text);
 
   return (
     <Layout color={color}>
@@ -79,7 +78,7 @@ const IndexPage: React.VFC = () => {
         <p style={centerShadowText}>{text}</p>
         <p style={centerText}>{text}</p>
         <p style={helpText}>
-          This is my portfolio site! © 2021, Keisuke Tokunaga
+          {`This is my portfolio site! © ${thisYear} Keisuke Tokunaga`}
         </p>
         <Box
           style={{

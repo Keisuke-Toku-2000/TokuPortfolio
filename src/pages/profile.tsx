@@ -65,12 +65,24 @@ const Profile: React.VFC = () => {
           <Stack
             spacing={1}
             justifyContent="flex-start"
-            sx={{ textAlign: "left" }}
+            sx={{
+              textAlign: "left",
+              fontStyle: "italic",
+            }}
           >
             <br />
             <p>{`名前：　徳永 圭佑（${getAge()}）`}</p>
             <p>{`大学：　会津大学（${isOverGraduate()}）`}</p>
             <p>趣味：　ポーカー、サウナ、ディスカバリーチャンネルを見る</p>
+            <p>
+              メール：　
+              <a
+                style={{ textDecoration: "none", color: "black" }}
+                href="mailto:keisuke20000923@gmail.com"
+              >
+                keisuke20000923@gmail.com
+              </a>
+            </p>
           </Stack>
         </div>
       </Stack>
