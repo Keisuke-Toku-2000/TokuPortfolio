@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Layout } from "../components/Layout/Layout";
-import { AboutMe } from "../components/Profile/AboutMe";
+import { Aboutme } from "../components/Profile/Aboutme";
 import { Experience } from "../components/Profile/Experience";
 
 export const card: object = {
@@ -16,7 +16,7 @@ export const card: object = {
 const Profile: React.VFC = () => {
   return (
     <Layout>
-      <AboutMe />
+      <Aboutme />
       <Experience />
       <div style={{ margin: 50 }}></div>
     </Layout>

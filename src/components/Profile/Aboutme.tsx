@@ -11,7 +11,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import { VFC } from "react";
 import { card } from "../../pages/profile";
 
-export const AboutMe: VFC = () => {
+export const Aboutme: VFC = () => {
   const getAge = () => {
     const birthday = {
       year: 2000,
