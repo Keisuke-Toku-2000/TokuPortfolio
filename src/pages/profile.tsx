@@ -1,5 +1,4 @@
 import * as React from "react";
-//@ts-ignore
 import { Layout } from "../components/Layout/Layout";
 import { AboutMe } from "../components/Profile/AboutMe";
 import { Experience } from "../components/Profile/Experience";
