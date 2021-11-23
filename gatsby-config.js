@@ -17,8 +17,6 @@ module.exports = {
         path: "./src/images/",
       },
       __key: "images",
-    },
-    {
       resolve: "gatsby-source-microcms",
       options: {
         apiKey: process.env.API_KEY,
@@ -28,6 +26,12 @@ module.exports = {
             endpoint: "blog_with_picture",
           },
         ],
+      },
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
       },
     },
   ],
