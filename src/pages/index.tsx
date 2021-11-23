@@ -35,24 +35,25 @@ const IndexPage: React.VFC = () => {
   const [color, setColor] = useState("#6794D8");
   const centerShadowText: object = {
     position: "absolute",
-    left: "14%",
+    left: "18%",
     top: "-15px",
     fontStyle: "italic",
     fontSize: "15vw",
     color: color,
     filter: "blur(2px)",
     opacity: 0.4,
+    fontFamily: "Impact",
   };
 
   const centerText: object = {
     position: "absolute",
-    left: "11%",
+    left: "15%",
     top: "10px",
     fontStyle: "italic",
     fontSize: "15vw",
     color: color,
     opacity: 0.9,
-    animation: "3s ease-in 1s infinite reverse both running slidein",
+    fontFamily: "Impact",
   };
 
   const [text, setText] = useState<string>("");
