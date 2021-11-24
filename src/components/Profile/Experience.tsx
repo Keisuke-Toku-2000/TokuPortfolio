@@ -4,10 +4,11 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import StepContent from "@mui/material/StepContent";
 import Typography from "@mui/material/Typography";
-import { Button, createTheme, Stack, ThemeProvider } from "@mui/material";
+import { createTheme, Stack, ThemeProvider } from "@mui/material";
 import React, { useState } from "react";
 import { VFC } from "react";
 import { card } from "../../pages/profile";
+import { Button } from "@material-ui/core";
 
 type Step = {
   label: string;
@@ -90,26 +91,29 @@ export const Experience: VFC = () => {
                 <Typography style={{ textAlign: "left", fontSize: 14 }}>
                   {step.description}
                 </Typography>
-                <Box sx={{ mb: 2, textAlign: "right" }}>
-                  <div>
-                    {index !== 0 && (
-                      <Button
-                        onClick={handleBack}
-                        sx={{ mt: 1, mr: 1 }}
-                        variant="outlined"
-                      >
-                        戻る
-                      </Button>
-                    )}
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  justifyContent="flex-end"
+                  style={{ marginTop: "2%" }}
+                >
+                  {index !== 0 && (
                     <Button
-                      variant="contained"
-                      onClick={handleNext}
-                      sx={{ mt: 1, mr: 1 }}
+                      onClick={handleBack}
+                      variant="outlined"
+                      color="primary"
                     >
-                      {index === steps.length - 1 ? "終了" : "次へ"}
+                      戻る
                     </Button>
-                  </div>
-                </Box>
+                  )}
+                  <Button
+                    variant="contained"
+                    onClick={handleNext}
+                    color="primary"
+                  >
+                    {index === steps.length - 1 ? "終了" : "次へ"}
+                  </Button>
+                </Stack>
               </StepContent>
             </Step>
           ))}
