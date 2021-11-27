@@ -4,17 +4,18 @@ import { Header } from "../header";
 
 type Props = {
   color?: string;
+  secondColor?: string;
   children: React.ReactNode;
 };
 
-export const Layout: React.VFC<Props> = ({ color, children }) => {
+export const Layout: React.VFC<Props> = ({ color, secondColor, children }) => {
   const theme = createTheme({
     palette: {
       primary: {
         main: color ?? "#6794D8",
       },
       secondary: {
-        main: "#00bcd4",
+        main: secondColor ?? "#00bcd4",
       },
     },
   });

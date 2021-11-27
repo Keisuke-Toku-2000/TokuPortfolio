@@ -2,14 +2,16 @@ import * as React from "react";
 import { Layout } from "../components/Layout/Layout";
 import { Aboutme } from "../components/Profile/Aboutme";
 import { Experience } from "../components/Profile/Experience";
+import { Projects } from "../components/Profile/Projects";
 
 export const card: object = {
   textAlign: "center",
   backgroundColor: "#D7EEFF",
   paddingTop: "3%",
   paddingBottom: "3%",
-  marginLeft: "20%",
-  marginRight: "20%",
+  margin: "0 auto",
+  marginBottom: "2%",
+  width: "90%",
   borderRadius: "100px",
 };
 
@@ -18,7 +20,7 @@ const Profile: React.VFC = () => {
     <Layout>
       <Aboutme />
       <Experience />
-      <div style={{ margin: 50 }}></div>
+      <Projects />
     </Layout>
   );
 };

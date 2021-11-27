@@ -10,6 +10,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { VFC } from "react";
 import { card } from "../../pages/profile";
+import { Movecard } from "../Layout/Movecard";
 
 export const Aboutme: VFC = () => {
   const getAge = () => {
@@ -41,71 +42,69 @@ export const Aboutme: VFC = () => {
     }
   };
   return (
-    <Stack
-      direction="row"
-      justifyContent="center"
-      sx={{ ...card, marginTop: "8%", paddingTop: "8%" }}
-    >
-      <Avatar
-        alt="keisuke"
-        src={avater}
-        sx={{
-          width: "24%",
-          height: "24%",
-          marginRight: "2%",
-        }}
-      />
-      <div style={{ color: "#1f3134" }}>
-        <Typography
-          variant="h2"
-          style={{
-            fontStyle: "italic",
-            marginTop: "-15%",
-            fontFamily: "arial",
-          }}
-        >
-          About me
-        </Typography>
-        <Stack
-          spacing={1}
-          justifyContent="flex-start"
+    <Movecard lt={40} lb={10} rt={0} rb={0}>
+      <Stack direction="row" justifyContent="center" sx={{ paddingTop: "6%" }}>
+        <Avatar
+          alt="keisuke"
+          src={avater}
           sx={{
-            textAlign: "left",
-            fontStyle: "italic",
+            width: "24%",
+            height: "24%",
+            marginRight: "2%",
           }}
-        >
-          <br />
-          <p>{`名前：　徳永 圭佑（${getAge()}）`}</p>
-          <p>{`大学：　会津大学（${isOverGraduate()}）`}</p>
-          <p>趣味：　ポーカー、サウナ、ディスカバリーチャンネルを見る</p>
-          <p>特技：　出川English、テスラのモノマネ</p>
-          <p>
-            メール：　
-            <a
-              style={{ textDecoration: "none", color: "#1f3134" }}
-              href="mailto:keisuke20000923@gmail.com"
-            >
-              keisuke20000923@gmail.com
-            </a>
-          </p>
-        </Stack>
-        <Stack
-          direction="row"
-          spacing={2}
-          sx={{ marginTop: "6%" }}
-          justifyContent="right"
-        >
-          <IconButton href="https://twitter.com/keisuke2000_">
-            <TwitterIcon />
-          </IconButton>
-          <IconButton href="https://www.instagram.com/kei_toku0923/">
-            <InstagramIcon />
-          </IconButton>
-          <IconButton href="https://github.com/Keisuke-Toku-2000">
-            <GitHubIcon />
-          </IconButton>
-        </Stack>
-      </div>
-    </Stack>
+        />
+        <div style={{ color: "#1f3134" }}>
+          <Typography
+            variant="h2"
+            style={{
+              fontStyle: "italic",
+              marginTop: "-15%",
+              fontFamily: "arial",
+            }}
+          >
+            About me
+          </Typography>
+          <Stack
+            spacing={1}
+            justifyContent="flex-start"
+            sx={{
+              textAlign: "left",
+              fontStyle: "italic",
+            }}
+          >
+            <br />
+            <p>{`名前：　徳永 圭佑（${getAge()}）`}</p>
+            <p>{`大学：　会津大学（${isOverGraduate()}）`}</p>
+            <p>趣味：　ポーカー、サウナ、ディスカバリーチャンネルを見る</p>
+            <p>特技：　出川English、テスラのモノマネ</p>
+            <p>
+              メール：　
+              <a
+                style={{ textDecoration: "none", color: "#1f3134" }}
+                href="mailto:keisuke20000923@gmail.com"
+              >
+                keisuke20000923@gmail.com
+              </a>
+            </p>
+          </Stack>
+          <Stack
+            direction="row"
+            spacing={2}
+            sx={{ marginTop: "6%" }}
+            justifyContent="right"
+          >
+            <IconButton href="https://twitter.com/keisuke2000_">
+              <TwitterIcon />
+            </IconButton>
+            <IconButton href="https://www.instagram.com/kei_toku0923/">
+              <InstagramIcon />
+            </IconButton>
+            <IconButton href="https://github.com/Keisuke-Toku-2000">
+              <GitHubIcon />
+            </IconButton>
+          </Stack>
+        </div>
+      </Stack>
+    </Movecard>
   );
 };

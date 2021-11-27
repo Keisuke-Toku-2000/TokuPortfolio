@@ -1,6 +1,7 @@
 import { Box, IconButton } from "@material-ui/core";
-import { LensBlur } from "@mui/icons-material";
+import { LensBlur, Margin } from "@mui/icons-material";
 import BrushIcon from "@mui/icons-material/Brush";
+import { graphql } from "gatsby";
 
 import * as React from "react";
 import { useEffect, useState } from "react";
@@ -10,7 +11,7 @@ const helpText: object = {
   fontFamily: "Roboto",
   fontSze: "5%",
   lineHeight: "28px",
-  marginTop: "65vh",
+  marginTop: "75vh",
   textAlign: "center",
   opacity: 0.8,
   color: "#667979",
@@ -32,14 +33,15 @@ const paintColors = [
 ];
 
 const IndexPage: React.VFC = () => {
-  const [color, setColor] = useState("#6794D8");
+  const [color, setColor] = useState(paintColors[7]);
+  const [secondColor, setSecondColor] = useState(paintColors[11]);
   const centerShadowText: object = {
     position: "absolute",
     left: "18%",
     top: "-15px",
     fontStyle: "italic",
     fontSize: "15vw",
-    color: color,
+    color: secondColor,
     filter: "blur(2px)",
     opacity: 0.4,
     fontFamily: "Impact",
@@ -74,23 +76,13 @@ const IndexPage: React.VFC = () => {
   }, [color]);
 
   return (
-    <Layout color={color}>
+    <Layout color={color} secondColor={secondColor}>
       <div>
         <p style={centerShadowText}>{text}</p>
         <p style={centerText}>{text}</p>
         <p style={helpText}>
           {`This is my portfolio site. © ${thisYear} Keisuke Tokunaga`}
         </p>
-        <Box
-          style={{
-            position: "absolute",
-            left: "0%",
-            top: "0%",
-            width: "100%",
-            height: "100%",
-            textAlign: "center",
-          }}
-        />
       </div>
       <div style={{ textAlign: "center" }}>
         {paintColors.map((paintColor, i) => (
@@ -98,6 +90,7 @@ const IndexPage: React.VFC = () => {
             style={{ color: paintColor }}
             onClick={() => {
               setColor(paintColor);
+              setSecondColor(paintColors[i + 4 > 11 ? -(11 - i - 4) : i + 4]);
             }}
             key={i}
           >
