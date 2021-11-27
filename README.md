@@ -1,3 +1,3 @@
 
 ## 🚀 URL
-https://tokuportfoliomaster.gatsbyjs.io/profile/
+https://tokuportfoliomaster.gatsbyjs.io
