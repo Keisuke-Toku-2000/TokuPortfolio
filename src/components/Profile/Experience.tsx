@@ -6,9 +6,8 @@ import Typography from "@mui/material/Typography";
 import { createTheme, Stack, ThemeProvider } from "@mui/material";
 import React, { useState } from "react";
 import { VFC } from "react";
-import { card } from "../../pages/profile";
 import { Button } from "@material-ui/core";
-import { Movecard } from "../Layout/Movecard";
+import { BGCard } from "../Layout/BGCard";
 
 type Step = {
   label: string;
@@ -18,7 +17,7 @@ type Step = {
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#6794D8",
+      main: "#FFFFFF",
     },
     secondary: {
       main: "#00bcd4",
@@ -64,18 +63,18 @@ export const Experience: VFC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Movecard lt={10} lb={50} rt={5} rb={70}>
+      <BGCard>
         <Stack
-          style={{ marginTop: "3%" }}
+          style={{ marginTop: "1%" }}
           alignContent="center"
           direction="column"
         >
           <Typography
-            variant="h3"
+            variant="h2"
             style={{
-              fontStyle: "italic",
               fontFamily: "arial",
-              color: "#1f3134",
+              color: "#FFFFFF",
+              textDecoration: "underline",
             }}
           >
             Experience
@@ -87,9 +86,14 @@ export const Experience: VFC = () => {
           >
             {steps.map((step, index) => (
               <Step key={index} sx={{ fontFamily: "arial" }}>
-                <StepLabel>{step.label}</StepLabel>
+                <StepLabel style={{}}>{step.label}</StepLabel>
                 <StepContent>
-                  <Typography style={{ textAlign: "left", fontSize: 14 }}>
+                  <Typography
+                    style={{
+                      textAlign: "left",
+                      fontSize: 14,
+                    }}
+                  >
                     {step.description}
                   </Typography>
                   <Stack
@@ -139,7 +143,7 @@ export const Experience: VFC = () => {
             </Stack>
           )}
         </Stack>
-      </Movecard>
+      </BGCard>
     </ThemeProvider>
   );
 };

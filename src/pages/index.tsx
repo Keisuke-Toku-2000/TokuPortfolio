@@ -18,14 +18,14 @@ const helpText: object = {
 };
 
 const paintColors = [
-  "#A35656",
+  "#FFFFFF",
   "#C26936",
   "#CBAB57",
   "#9ED963",
   "#48A75D",
-  "#85DDA8",
+  "#FFFFFF",
   "#5CD5DD",
-  "#6794D8",
+  "#FFFFFF",
   "#5641D9",
   "#AA41A6",
   "#DE5B9A",
@@ -33,7 +33,7 @@ const paintColors = [
 ];
 
 const IndexPage: React.VFC = () => {
-  const [color, setColor] = useState(paintColors[7]);
+  const [color, setColor] = useState(paintColors[0]);
   const [secondColor, setSecondColor] = useState(paintColors[11]);
   const centerShadowText: object = {
     position: "absolute",
@@ -77,27 +77,29 @@ const IndexPage: React.VFC = () => {
 
   return (
     <Layout color={color} secondColor={secondColor}>
-      <div>
-        <p style={centerShadowText}>{text}</p>
-        <p style={centerText}>{text}</p>
-        <p style={helpText}>
-          {`This is my portfolio site. © ${thisYear} Keisuke Tokunaga`}
-        </p>
-      </div>
-      <div style={{ textAlign: "center" }}>
-        {paintColors.map((paintColor, i) => (
-          <IconButton
-            style={{ color: paintColor }}
-            onClick={() => {
-              setColor(paintColor);
-              setSecondColor(paintColors[i + 4 > 11 ? -(11 - i - 4) : i + 4]);
-            }}
-            key={i}
-          >
-            <LensBlur />
-          </IconButton>
-        ))}
-      </div>
+      <Box style={{ backgroundColor: "#4169E1", color: "black" }}>
+        <div>
+          <p style={centerShadowText}>{text}</p>
+          <p style={centerText}>{text}</p>
+          <p style={helpText}>
+            {`This is my portfolio site. © ${thisYear} Keisuke Tokunaga`}
+          </p>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          {paintColors.map((paintColor, i) => (
+            <IconButton
+              style={{ color: paintColor }}
+              onClick={() => {
+                setColor(paintColor);
+                setSecondColor(paintColors[i + 4 > 11 ? -(11 - i - 4) : i + 4]);
+              }}
+              key={i}
+            >
+              <LensBlur />
+            </IconButton>
+          ))}
+        </div>
+      </Box>
     </Layout>
   );
 };

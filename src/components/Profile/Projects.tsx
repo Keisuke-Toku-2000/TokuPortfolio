@@ -10,8 +10,7 @@ import {
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { VFC } from "react";
-import { card } from "../../pages/profile";
-import { Movecard } from "../Layout/Movecard";
+import { BGCard } from "../Layout/BGCard";
 
 export const Projects: VFC = () => {
   const data = useStaticQuery<GatsbyTypes.MyQueryQuery>(graphql`
@@ -36,24 +35,30 @@ export const Projects: VFC = () => {
   `);
 
   return (
-    <Movecard lt={40} lb={50} rt={60} rb={70}>
+    <BGCard>
       <div
         style={{
           position: "relative",
           textAlign: "center",
           paddingBottom: 20,
-          fontStyle: "italic",
           fontFamily: "arial",
         }}
       >
-        <Typography variant="h3" style={{ margin: 10 }}>
+        <Typography
+          variant="h2"
+          style={{
+            fontFamily: "arial",
+            color: "#FFFFFF",
+            textDecoration: "underline",
+          }}
+        >
           Projects
         </Typography>
         <Grid
           container
           style={{
             flexGrow: 1,
-            marginTop: 10,
+            marginTop: 30,
             justifyContent: "center",
           }}
         >
@@ -77,6 +82,6 @@ export const Projects: VFC = () => {
           ))}
         </Grid>
       </div>
-    </Movecard>
+    </BGCard>
   );
 };

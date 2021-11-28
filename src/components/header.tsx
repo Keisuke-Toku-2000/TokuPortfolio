@@ -39,7 +39,7 @@ export const Header: VFC = () => {
   return (
     <AppBar color="primary">
       <Toolbar>
-        <p style={{ fontStyle: "italic", color: "white" }}>{getNow()}</p>
+        <p style={{ fontStyle: "italic", color: "black" }}>{getNow()}</p>
         <div style={{ marginLeft: "auto", fontStyle: "italic" }}>
           {menuItem.map((item, i) => {
             let page_link = "";
@@ -53,7 +53,13 @@ export const Header: VFC = () => {
                 to={page_link}
                 key={i}
               >
-                <Box style={{ display: "inline", marginRight: "15px" }}>
+                <Box
+                  style={{
+                    display: "inline",
+                    marginRight: "15px",
+                    color: "black",
+                  }}
+                >
                   {item}
                 </Box>
               </Link>
