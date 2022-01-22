@@ -16,7 +16,8 @@ const nonActiveText: object = {
   fontWeight: "nomal",
 };
 
-const menuItem = ["TOP", "PROFILE", "BLOG"];
+// TODO: Blogを実装行い次第 const menuItem = ["TOP", "PROFILE", "BLOG"]　に変更
+const menuItem = ["TOP", "PROFILE"];
 
 export const Header: VFC = () => {
   const [now, setNow] = useState<Date>(new Date());

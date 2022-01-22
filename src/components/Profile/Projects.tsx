@@ -1,15 +1,18 @@
 import { Button, Card } from "@material-ui/core";
 import {
-  Box,
   CardActions,
   CardContent,
   CardMedia,
   Grid,
   Typography,
+  Dialog,
+  DialogTitle,
+  DialogContent,
 } from "@mui/material";
 import { graphql, useStaticQuery } from "gatsby";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { VFC } from "react";
+import { useDialog } from "../hooks/useDialog";
 import { BGCard } from "../Layout/BGCard";
 
 export const Projects: VFC = () => {
@@ -62,26 +65,48 @@ export const Projects: VFC = () => {
             justifyContent: "center",
           }}
         >
-          {data.allMicrocmsBlogWithPicture.edges.map((item, i) => (
-            <Card style={{ height: 400, width: 275, margin: 10 }} key={i}>
-              <CardMedia
-                component="img"
-                image={item.node.picture?.url}
-                style={{ height: 275 }}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {item.node.title}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
-              </CardActions>
-            </Card>
-          ))}
+          {data.allMicrocmsBlogWithPicture.edges.map((item, i) => {
+            const { isOpen, close, open } = useDialog();
+            return (
+              <Card style={{ height: 400, width: 275, margin: 10 }} key={i}>
+                <CardMedia
+                  component="img"
+                  image={item.node.picture?.url}
+                  style={{ height: 275 }}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {item.node.title}
+                  </Typography>
+                </CardContent>
+                <CardActions disableSpacing={false}>
+                  <Button size="small" onClick={open}>
+                    Open
+                  </Button>
+                </CardActions>
+                {isOpen && <ProjectModal close={close} projectDetail={item} />}
+              </Card>
+            );
+          })}
         </Grid>
       </div>
     </BGCard>
+  );
+};
+
+type ProjectModalProps = {
+  close: () => void;
+  // TODO: TSの型を自動生成にして対応させる。
+  projectDetail: any;
+};
+
+const ProjectModal: VFC<ProjectModalProps> = ({ close, projectDetail }) => {
+  console.log(projectDetail);
+  return (
+    <Dialog open onClose={close}>
+      <DialogContent>
+        <div dangerouslySetInnerHTML={{ __html: projectDetail.node.body }} />
+      </DialogContent>
+    </Dialog>
   );
 };
